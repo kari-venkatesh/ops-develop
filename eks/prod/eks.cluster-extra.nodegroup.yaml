@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: a1
+  region: us-east-2
+
+nodeGroups:
+  - name: v4
+    minSize: 2
+    maxSize: 16
+    volumeSize: 5
+    privateNetworking: true
+    instancesDistribution:
+      maxPrice: 0.007
+      instanceTypes: ["t3.small"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 3
+    iam:
+      instanceProfileARN: "arn:aws:iam::903635927707:instance-profile/eksctl-a1-nodegroup-v3-NodeInstanceProfile-GL1H7JJPTOA7"
+      instanceRoleARN: "arn:aws:iam::903635927707:role/eksctl-a1-nodegroup-v3-NodeInstanceRole-B58N7U6JUJFZ"

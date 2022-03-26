@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aws-cli
+  labels:
+    name: aws-cli
+  annotations:
+    iam.amazonaws.com/role: arn:aws:iam::903635927707:role/dsrppublish.service
+spec:
+  containers:
+    - image: mikesir87/aws-cli
+      command:
+        - "aws"
+        - "s3"
+        - "ls"
+        - "pieeye-tenant/tenants.json"
+      name: aws-cli

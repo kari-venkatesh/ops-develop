@@ -1,0 +1,44 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: a1
+  region: us-east-2
+
+vpc:
+  id: "vpc-9ea979f5"
+  subnets:
+    private:
+      us-east-2a:
+        id: "subnet-008c1c24213a11aaa"
+      us-east-2b:
+        id: "subnet-0a76d0bdcf8016296"
+      us-east-2c:
+        id: "subnet-01dc0d7bd678047e7"
+    public:
+      us-east-2a:
+        id: "subnet-40fd052b"
+      us-east-2b:
+        id: "subnet-40fd052b"
+      us-east-2c:
+        id: "subnet-473ca20b"
+
+nodeGroups:
+  - name: v3
+    minSize: 2
+    maxSize: 16
+    volumeSize: 5
+    privateNetworking: true
+    instancesDistribution:
+      maxPrice: 0.007
+      instanceTypes: ["t3.small"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 3
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::903635927707:policy/StsAssumeRole
+      withAddonPolicies:
+        autoScaler: true
