@@ -1,0 +1,18 @@
+Connector Engine
+internal-a810a0386a6124c069fe2b647feb34ee-1865566016.us-east-2.elb.amazonaws.com:9092/v1/connector 
+or 
+internal-a810a0386a6124c069fe2b647feb34ee-1865566016.us-east-2.elb.amazonaws.com:9092/v1/{tenantid}/ws/{wsId}/connector/{connectorId}/authenticate
+Connector Scheduler
+ internal-aa82a698e94094cdc86187e350618a7f-1472739176.us-east-2.elb.amazonaws.com:9095/v1/trigger
+or 
+ internal-aa82a698e94094cdc86187e350618a7f-1472739176.us-east-2.elb.amazonaws.com:9095/v1/{tenantid}/ws/{wsId}/instance/{instanceId}/data
+dsrp work flow
+internal-a2f717d2b381244fc9c3918746f86a80-1981987270.us-east-2.elb.amazonaws.com:9090/ws/<wsId>/dsr/{dsrId}/agent/verify
+or 
+internal-a2f717d2b381244fc9c3918746f86a80-1981987270.us-east-2.elb.amazonaws.com:9090/dsr/{dsrId}/identity/verify
+or
+internal-a2f717d2b381244fc9c3918746f86a80-1981987270.us-east-2.elb.amazonaws.com:9090/dsrtaskcomplete/send
+or
+internal-a2f717d2b381244fc9c3918746f86a80-1981987270.us-east-2.elb.amazonaws.com:9090/dsrtaskcomplete/send
+dsrp publish
+internal-a6a8b706542fe44a78820e12dcdb3bb8-1353511099.us-east-2.elb.amazonaws.com:9091/ws/{wsId}/dsrp/{dsrpId}/publish
