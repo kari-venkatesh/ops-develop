@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: camunda
+  annotations:
+    #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/rewrite-target: /engine-rest/$1
+  namespace: default
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /camunda/(.+)
+            backend:
+              serviceName: caworkflow
+              servicePort: 8080
